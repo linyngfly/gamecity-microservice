@@ -1,0 +1,13 @@
+{
+  "name": "gamecity-microservice",
+  "version": "1.0.0",
+  "description": "game micro service struct",
+  "main": "index.js",
+  "repository": "https://github.com/linyngfly/gamecity-microservice.git",
+  "author": "linyngfly <linyngfly@163.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "colyseus": "^0.9.33"
+  }
+}
