@@ -1,4 +1,4 @@
-import { randomChineseName } from '../Utils'
+import { randomChineseName } from '../utils/Utils'
 export class Player {
     public name: string;  // 名称
     public x: number;    // x轴的位置

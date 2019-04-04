@@ -17,6 +17,8 @@ interface ResponseTextCallback {
  * @export
  * @class Http
  */
+
+ var cc:any;
 export class Http {
 
     /**

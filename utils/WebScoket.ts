@@ -9,11 +9,14 @@ import { EventEmitter } from "./EventEmitter";
  * @class WS
  * @extends {EventEmitter}
  */
+var WebSocket:any;
+
 export class WS extends EventEmitter {
     // 单例
     public static readonly INS: WS = new WS();
     // socket实例
-    private _sock: WebSocket = null;
+    // private _sock: WebSocket = null;
+    private _sock: any = null;
     // 是否连接成功
     private _isConnected: boolean = false;
 
@@ -57,7 +60,8 @@ export class WS extends EventEmitter {
      * @private
      * @memberof WS
      */
-    private _onOpen(event: MessageEvent) {
+    private _onOpen(event: any) {
+    // private _onOpen(event: MessageEvent) {
         this._isConnected = true;
         this.emit(WS.EventType.OPEN, event);   
     }
@@ -68,7 +72,8 @@ export class WS extends EventEmitter {
      * @private
      * @memberof WS
      */
-    private _onError(event: MessageEvent) {
+    private _onError(event: any) {
+    // private _onError(event: MessageEvent) {
         this._isConnected = false;
         this.emit(WS.EventType.ERROR, event);
     }
@@ -79,7 +84,8 @@ export class WS extends EventEmitter {
      * @private
      * @memberof WS
      */
-    private _onClose(event: MessageEvent) {
+    private _onClose(event: any) {
+    // private _onClose(event: MessageEvent) {
         this._isConnected = false;
         this.emit(WS.EventType.CLOSE, event);  
     }
@@ -91,7 +97,8 @@ export class WS extends EventEmitter {
      * @param {MessageEvent} event
      * @memberof WS
      */
-    private _onMessage(event: MessageEvent) {
+    private _onMessage(event: any) {
+    // private _onMessage(event: MessageEvent) {
         this._isConnected = false;
         this.emit(WS.EventType.MESSAGE, event);    
     }

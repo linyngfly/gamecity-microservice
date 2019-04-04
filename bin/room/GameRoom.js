@@ -28,5 +28,8 @@ class GameRoom extends colyseus_1.Room {
     onMessage(client, data) {
         this.state.movePlayer(client, data.x, data.y);
     }
+    onDispose() {
+        console.log("Dispose GameRoom");
+    }
 }
 exports.GameRoom = GameRoom;

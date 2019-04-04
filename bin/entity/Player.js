@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Utils_1 = require("../Utils");
+const Utils_1 = require("../utils/Utils");
 class Player {
     constructor(x, y, name) {
         this.x = x;

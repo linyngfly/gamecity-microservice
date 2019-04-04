@@ -35,11 +35,11 @@ export class EventEmitter {
      * 遍历事件的事件的绑定
      *
      * @private
-     * @param {[]} obj
+     * @param {Array} obj
      * @param {*} callback
      * @memberof EventEmitter
      */
-    private _each(obj: [], callback: any) {
+    private _each(obj: Array<any>, callback: any) {
         for (let key in obj) {
             if(obj.hasOwnProperty(key)) {
                 callback(key, obj[key]);
@@ -127,7 +127,7 @@ export class EventEmitter {
     emit(eventName: string, ...array: Array<any>) {
         setTimeout(() => {
             this._emitFunc(eventName, array);
-        });
+        }, 0);
     }
 
     /**
