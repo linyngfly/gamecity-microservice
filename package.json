@@ -3,11 +3,29 @@
   "version": "1.0.0",
   "description": "game micro service struct",
   "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch '**/*.ts' --exec ts-node index.ts",
+    "bundle-colyseus-client": "browserify ./node_modules/colyseus.js/lib/index.js -s Colyseus -o static/colyseus.js",
+    "build": "npm run bundle-colyseus-client",
+    "heroku-postbuild": "npm run build"
+  },
   "repository": "https://github.com/linyngfly/gamecity-microservice.git",
   "author": "linyngfly <linyngfly@163.com>",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "colyseus": "^0.9.33"
+    "@colyseus/monitor": "^0.1.11",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.9.6",
+    "@types/redis": "^2.8.10",
+    "colyseus": "^0.9.33",
+    "colyseus.js": "^0.10.4",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
   }
 }
