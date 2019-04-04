@@ -29,4 +29,8 @@ export class GameRoom extends Room<PlayerState> {
         this.state.movePlayer(client, data.x, data.y);
     }
 
+    onDispose () {
+        console.log("Dispose GameRoom");
+    }
+
 }
