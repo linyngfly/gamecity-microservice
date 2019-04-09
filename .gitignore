@@ -16,14 +16,4 @@ logs/*.log.*
 **/node_modules
 node_modules/*
 /node_modules
-dataBack/*
-
-*/**/fishjoy
-doc/~$*
-package-lock.json
-app/servers/resource/*
-tests/*
-app/servers/resource/public/*
-samples/FriedGoldenFlower-master/
-samples/catchResource/new_lyh5.leg668.com.zip
-doc/playway/~$众麻将系统案.docx
+.nyc_output
