@@ -19,17 +19,17 @@ export class GameRoom extends Room<PlayerState> {
     // 消息收取方法
     onJoin(client: Client) {
         console.log('ChatRoom onJoin');
-        this.state.addPlayer(client);
+        this.state.addPlayer(client.sessionId);
     }
 
     // 消息收取方法
     onLeave(client: Client) {
-        this.state.removePlayer(client);
+        this.state.removePlayer(client.sessionId);
     }
 
     // 消息收取方法
     onMessage(client: Client, data: any): void {
-        this.state.movePlayer(client, data.x, data.y);
+        this.state.movePlayer(client.sessionId, data.x, data.y);
     }
 
     onDispose () {

@@ -1,8 +1,8 @@
 import { Client } from 'colyseus';
-import { Schema, type, MapSchema} from "@colyseus/schema";
+import { Schema, type, MapSchema } from "@colyseus/schema";
 import { Player } from './Player';
 
-export class PlayerState extends Schema{
+export class PlayerState extends Schema {
     // EntityMap是colyseus的对象实体模板
     @type({ map: Player })
     players = new MapSchema<Player>();
@@ -10,39 +10,39 @@ export class PlayerState extends Schema{
     /**
      * 添加新用户的方法
      *
-     * @param {Client} client
+     * @param {string} sessionId
      * @memberof PlayerState
      */
-    addPlayer(client: Client) {
+    addPlayer(sessionId: string) {
         let player = new Player(0, 0);
-        this.players[client.sessionId] = player;
+        this.players[sessionId] = player;
     }
 
     /**
      * 删除一个用户的方法
      *
-     * @param {Client} client
+     * @param {string} sessionId
      * @memberof PlayerState
      */
-    removePlayer (client: Client) {
-        delete this.players[ client.sessionId ];
+    removePlayer(sessionId: string) {
+        delete this.players[sessionId];
     }
 
     /**
      * 移动用户的方法
      *
-     * @param {Client} client
+     * @param {string} sessionId
      * @param {number} [x=0]
      * @param {number} [y=0]
      * @memberof PlayerState
      */
-    movePlayer(client: Client, x: number = 0, y: number = 0) {
-        this.players[client.sessionId].x += x;
-        this.players[client.sessionId].y += y;
-        if(x > 0){
-            this.players[client.sessionId].dir = true;
+    movePlayer(sessionId: string, x: number = 0, y: number = 0) {
+        this.players[sessionId].x += x;
+        this.players[sessionId].y += y;
+        if (x > 0) {
+            this.players[sessionId].dir = true;
         } else {
-            this.players[client.sessionId].dir = false;
+            this.players[sessionId].dir = false;
         }
     }
 }
