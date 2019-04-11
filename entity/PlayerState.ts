@@ -1,9 +1,11 @@
-import { EntityMap, Client } from 'colyseus';
+import { Client } from 'colyseus';
+import { Schema, type, MapSchema} from "@colyseus/schema";
 import { Player } from './Player';
 
-export class PlayerState {
+export class PlayerState extends Schema{
     // EntityMap是colyseus的对象实体模板
-    players: EntityMap<Player> = {};
+    @type({ map: Player })
+    players = new MapSchema<Player>();
 
     /**
      * 添加新用户的方法

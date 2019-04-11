@@ -1,6 +1,8 @@
-import { Room, Client } from 'colyseus';
+// import { Room, Client,FossilDeltaSerializer, serialize} from 'colyseus';
+import { Room, Client} from 'colyseus';
 import { PlayerState } from '../entity/PlayerState';
 
+// @serialize(FossilDeltaSerializer)
 export class GameRoom extends Room<PlayerState> {
     // 房间内的最大人数
     maxClients: number = 3;
@@ -16,6 +18,7 @@ export class GameRoom extends Room<PlayerState> {
 
     // 消息收取方法
     onJoin(client: Client) {
+        console.log('ChatRoom onJoin');
         this.state.addPlayer(client);
     }
 
